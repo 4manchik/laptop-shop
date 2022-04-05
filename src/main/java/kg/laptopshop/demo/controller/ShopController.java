@@ -25,7 +25,7 @@ public class ShopController {
 
     @GetMapping
     public String getShop(Model model) {
-        Product product = shopService.findByDescription("s");
+        Product product = shopService.findByDescription("1");
         System.out.println(product);
         model.addAttribute("product", product);
         model.addAttribute("imgUtil", new ImageUtil());
