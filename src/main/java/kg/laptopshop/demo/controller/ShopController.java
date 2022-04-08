@@ -14,29 +14,16 @@ import java.util.*;
 public class ShopController {
 
     private final ShopService shopService;
-    private List<Product> listRowProduct;
-    private List<List<Product>> mainList;
 
     public ShopController(ShopService shopService) {
         this.shopService = shopService;
-        listRowProduct = new ArrayList<>();
-        mainList = new ArrayList<>();
     }
 
     @GetMapping
     public String getShop(Model model) {
-        Product product = shopService.findByDescription("1");
-        System.out.println(product);
-        model.addAttribute("product", product);
+        List<Product> productList = shopService.findAll();
+        model.addAttribute("productList", productList);
         model.addAttribute("imgUtil", new ImageUtil());
-
-//        List<Product> allProductsFromDatabase = shopService.findAll();
-        // Далее из allProductsFromDatabase сформировать List<List<Product>> mainList ??
-
-//        model.addAttribute("allProducts", mainList);
-
-//        List<List<Product>>
-
         return "shop";
     }
 

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Page</title>
+</head>
+<body>
+    <form method="POST" enctype="multipart/form-data" action="/api/management/shop/product">
+        <p>Product Description: <input type="text" name="description" id="description"/></p>
+        <p>Product Price: <input type="text" name="price" id="price"/></p>
+        <table>
+            <tr>
+                <td>Choose Laptop Image</td>
+                <td><input type="file" name="file" multiple="multiple" onchange="download(this)"/></td>
+                <td>
+                    <div class="img_wrapper">
+                        <img class="pic" src="#" alt="">
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <input type="submit" value="upload" />
+    </form>
+</body>
+
+<script>
+    let pic = document.querySelector('.pic');
+
+    function download(input) {
+        let file = input.files[0];
+        let reader = new FileReader();
+        reader.readAsDataURL(file);
+
+        reader.onload = function () {
+            pic.setAttribute('src', reader.result);
+        }
+    }
+</script>
+</html>

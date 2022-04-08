@@ -20,13 +20,13 @@ public class AdminShopProduct {
     }
 
     @GetMapping
-    public String getShopProduct() {
-        return "product_shop";
+    public String getRegistrationProductForm() {
+        return "registration_product";
     }
 
     @PostMapping
-    @ResponseBody
-    public void saveDeveloper(
+//    @ResponseBody
+    public String saveProductToDatabase(
             @RequestParam MultipartFile file,
             @RequestParam Map<String, String> data) throws IOException {
         System.out.println(data);
@@ -37,5 +37,6 @@ public class AdminShopProduct {
         product.setPrice(Double.parseDouble(data.get("price")));
         product.setImage(file.getBytes());
         shopService.save(product);
+        return "redirect:/api/management/shop/product";
     }
 }
