@@ -1,0 +1,47 @@
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Please sign in</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <form class="form-signin" th:object="${applicationUser}" method="post" action="#" th:action="@{/register}">
+        <h2 class="form-signin-heading">Регистрация новых пользователей</h2>
+        <p>
+            <label for="username" class="sr-only">Логин</label>
+            <input type="text" th:field="*{userName}" id="username" name="username" class="form-control" placeholder="Username" required=""
+                   autofocus="">
+        </p>
+        <p>
+            <label for="password" class="sr-only">Пароль</label>
+            <input type="password" th:field="*{password}" id="password" name="password" class="form-control" placeholder="Password"
+                   required="">
+        </p>
+        <p>
+            <label for="first_name" class="sr-only">Имя</label>
+            <input type="text" th:field="*{firstName}" id="first_name" name="first_name" class="form-control" placeholder="First Name"
+                   required="">
+        </p>
+        <p>
+            <label for="last_name" class="sr-only">Фамилия</label>
+            <input type="text" th:field="*{lastName}" id="last_name" name="last_name" class="form-control" placeholder="Last Name" required="">
+        </p>
+        <p>
+            <label for="phone_number" class="sr-only">Номер телефона</label>
+            <input type="text" th:field="*{phoneNumber}" id="phone_number" name="phone_number" class="form-control" placeholder="Phone number"
+                   required="">
+        </p>
+
+<!--        <input name="_csrf" type="hidden" value="aaff8ea3-92e0-4f32-bc46-449a04f11e0c">-->
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Зарегистрировать</button>
+    </form>
+</div>
+</body>
+</html>

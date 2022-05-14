@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Page</title>
+</head>
+<body>
+    <h1>Регистрация ноутбука</h1>
+    <form method="POST" enctype="multipart/form-data" action="/api/management/shop/product">
+        <p>
+            Модель ноутбука:
+            <input type="text" name="modelLaptop" id="modelLaptop" placeholder="Модель ноутбука" required="required" />
+        </p>
+        <p>
+            Фирма-производитель:
+            <input type="text" name="company" id="company" placeholder="Компания" required="required"/>
+        </p>
+        <p>
+            Диагональ (дюйм):
+            <input type="text" name="diagonal" id="diagonal" placeholder="Диагональ" required="required"/>
+        </p>
+        <p>
+            Процессор:
+            <input type="text" name="cpu" id="cpu" placeholder="Процессор" required="required"/>
+        </p>
+        <p>
+            Объем оперативной памяти (Гб):
+            <input type="text" name="amountRam" id="amountRam" placeholder="RAM" required="required"/>
+        </p>
+        <p>
+            Тип жесткого диска:
+            <input type="text" name="hardDiskType" id="hardDiskType" placeholder="Тип жесткого диска" required="required" />
+        </p>
+        <p>
+            Объем накопителя (Гб)
+            <input type="text" name="storageCapacity" id="storageCapacity" placeholder="Объем накопителя" required="required" />
+        </p>
+        <p>
+            Операционная сисиема:
+            <input type="text" name="operatingSystem" id="operatingSystem" placeholder="Операционная система" required="required"/>
+        </p>
+        <p>
+            Цена:
+            <input type="text" name="price" id="price" placeholder="Цена в долларах" required="required"/>
+        </p>
+
+<!--        Product Description: <input type="text" name="description" id="description"/>-->
+<!--        Product Price: <input type="text" name="price" id="price"/>-->
+
+        <table>
+            <tr>
+                <td>Выберите фото ноутбука: </td>
+                <td><input type="file" name="file" multiple="multiple" onchange="download(this)"/></td>
+                <td>
+                    <div class="img_wrapper">
+                        <img class="pic" src="#" alt="">
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <input type="submit" value="upload" />
+    </form>
+</body>
+
+<script>
+    let pic = document.querySelector('.pic');
+
+    function download(input) {
+        let file = input.files[0];
+        let reader = new FileReader();
+        reader.readAsDataURL(file);
+
+        reader.onload = function () {
+            pic.setAttribute('src', reader.result);
+        }
+    }
+</script>
+</html>
